@@ -62,9 +62,13 @@ select {
     right: 10px;
 }
 
-.github-logo {
+#github-link {
     position: fixed;
     top: 10px;
     height: 50px;
     right: 145px;
+}
+
+#github-link img {
+    height: 100%;
 }

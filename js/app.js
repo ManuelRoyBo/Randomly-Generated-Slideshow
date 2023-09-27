@@ -82,6 +82,14 @@ document
       location.reload();
   });
 
+function hideHeader() {
+  document.getElementsByTagName("header")[0].classList.add("hidden");
+}
+
+function showHeader() {
+  document.getElementsByTagName("header")[0].classList.remove("hidden");
+}
+
 function showCurrentSlide() {
   const slides = document.querySelectorAll(".slide");
   slides.forEach((slide) => {
@@ -91,12 +99,22 @@ function showCurrentSlide() {
       slide.classList.add("hidden");
     }
   });
+
+  //header
+  if(currentSlide === 0){
+    showHeader();
+  }
+  else
+  {
+    hideHeader();
+  }
+
 }
 
 let canChangeSlide = true;
 
 document.addEventListener("click", function (event) {
-  if (event.target.tagName === "H1" || event.target.tagName === "IMG") {
+  if (event.target.closest(".slide")){
     currentSlide++;
     if (currentSlide >= SLIDE_STRUCTURE.length) {
       currentSlide = SLIDE_STRUCTURE.length - 1;
