@@ -1,0 +1,128 @@
+<svg
+   width="71.999992mm"
+   height="62.566204mm"
+   viewBox="0 0 71.999992 62.566204"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="logoPowerPoint.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.8488791"
+     inkscape:cx="157.07932"
+     inkscape:cy="115.30851"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <rect
+         style="display:none;fill:#ffffff;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4"
+         width="70"
+         height="7"
+         x="1"
+         y="1"
+         rx="2.3059006"
+         ry="2.3059006"
+         d="M 3.3059006,1 H 68.694099 C 69.971568,1 71,2.0284317 71,3.3059006 V 5.6940994 C 71,6.9715683 69.971568,8 68.694099,8 H 3.3059006 C 2.0284317,8 1,6.9715683 1,5.6940994 V 3.3059006 C 1,2.0284317 2.0284317,1 3.3059006,1 Z" />
+      <path
+         id="lpe_path-effect4"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+         class="powerclip"
+         d="M -2.0000005,-5 H 74 V 55 H -2.0000005 Z M 3.3059006,1 C 2.0284317,1 1,2.0284317 1,3.3059006 V 5.6940994 C 1,6.9715683 2.0284317,8 3.3059006,8 H 68.694099 C 69.971568,8 71,6.9715683 71,5.6940994 V 3.3059006 C 71,2.0284317 69.971568,1 68.694099,1 Z" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="64"
+       height="48"
+       x="3.9999995"
+       y="1"
+       ry="8.485714"
+       rx="8.485714"
+       clip-path="url(#clipPath4)"
+       inkscape:path-effect="#path-effect4"
+       sodipodi:type="rect"
+       d="M 12.485713,1 H 59.514286 C 64.215371,1 68,4.7846284 68,9.485714 V 40.514286 C 68,45.215372 64.215371,49 59.514286,49 H 12.485713 C 7.7846279,49 3.9999995,45.215372 3.9999995,40.514286 V 9.485714 C 3.9999995,4.7846284 7.7846279,1 12.485713,1 Z"
+       inkscape:export-filename="RGS-logo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="70"
+       height="7"
+       x="1"
+       y="1"
+       rx="2.3059006"
+       ry="2.3059006" />
+    <g
+       id="g3"
+       transform="translate(-35.264033,-29.991304)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:2.03557;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3"
+         width="3.6731238"
+         height="13.402651"
+         x="90.691002"
+         y="73.293884"
+         rx="0.91216534"
+         ry="2.2100706"
+         transform="matrix(0.99274119,0.12027028,-0.37516258,0.92695903,0,0)" />
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:2.03557;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3-9"
+         width="3.6731238"
+         height="13.402651"
+         x="-46.189602"
+         y="90.995682"
+         rx="0.91216534"
+         ry="2.2100706"
+         transform="matrix(-0.99274118,0.12027028,0.37516258,0.92695903,0,0)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:15.875px;font-family:Haettenschweiler;-inkscape-font-specification:'Haettenschweiler, Normal';white-space:pre;inline-size:5.80694;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       x="52.307018"
+       y="54.654964"
+       id="text3"
+       transform="matrix(3.9354057,0,0,2.4916762,-181.02799,-94.691871)"><tspan
+         x="52.307018"
+         y="54.654964"
+         id="tspan1">?</tspan></text>
+  </g>
+</svg>
