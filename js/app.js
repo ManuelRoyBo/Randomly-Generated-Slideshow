@@ -1,66 +1,22 @@
-const NB_OF_IMAGES = 52;
+const NB_OF_IMAGES = 68;
+const SLIDE_CHANGE_COOLDOWN = 100; //in ms
 
-const fonts = ["Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT"];
-const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
-document.body.style.fontFamily = randomFont;
+const FONTS = ["Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT"];
 
-const fullscreenButton = document.getElementById("fullscreen-button");
-fullscreenButton.addEventListener("click", toggleFullScreen);
+const FULLSCREEN_BUTTON = document.getElementById("fullscreen-button");
+FULLSCREEN_BUTTON.addEventListener("click", toggleFullScreen);
+
+const RESTART_BUTTON = document.getElementById("restart-button");
 
 const INTRO_SLIDE_DIV = document.getElementById("intro-slide");
 const OUTRO_SLIDE_DIV = document.getElementById("outro-slide");
 
 const SELECT_LANGUAGE_SELECT = document.getElementById("select-language");
-
 const DEFAULT_LANGUAGE = "EN";
 const LANGUAGES = {
   EN: "English",
   FR: "Français",
 };
-
-let currentSlide = 0;
-function getAllImages() {
-  let images = [];
-  for (let i = 0; i < NB_OF_IMAGES; i++) {
-    images.push(`img/${i}.jpg`);
-  }
-  return images;
-}
-const IMAGES = getAllImages();
-
-
-let selectedLanguage = DEFAULT_LANGUAGE;
-
-if (Object.keys(LANGUAGES).includes(localStorage.getItem("language"))) {
-  selectedLanguage = localStorage.getItem("language");
-} else {
-  localStorage.setItem("language", DEFAULT_LANGUAGE);
-  selectedLanguage = DEFAULT_LANGUAGE;
-}
-
-let selectedLanguageOption = SELECT_LANGUAGE_SELECT.querySelector(
-  `option[value="${selectedLanguage}"]`
-);
-selectedLanguageOption.setAttribute("selected", "selected");
-
-SELECT_LANGUAGE_SELECT.addEventListener("change", function () {
-  const selectedLanguage = this.value;
-  localStorage.setItem("language", selectedLanguage);
-  location.reload();
-});
-
-let TEXT;
-
-fetch(`text/${selectedLanguage}.json`)
-  .then((response) => response.json())
-  .then((text) => {
-    TEXT = text;
-    createSlideShow();
-    showCurrentSlide();
-  })
-  .catch((error) => {
-    console.error("Error loading JSON file:", error);
-  });
 
 const SLIDE_STRUCTURE = [
   "introText",
@@ -76,9 +32,64 @@ const SLIDE_STRUCTURE = [
   "outroText",
 ];
 
-document
-  .getElementById("restart-button")
-  .addEventListener("click", function () {
+const NB_OF_IMAGES_IN_FILE_STRUCTURE = getNumberOfImagesInSlideStructure();
+const IMAGES = getAllImages();
+
+let TEXT;
+let currentSlide = 0;
+let selectedLanguage = DEFAULT_LANGUAGE;
+
+function getAllImages() {
+  let images = [];
+  for (let i = 0; i < NB_OF_IMAGES; i++) {
+    images.push(`img/${i}.jpg`);
+  }
+  return images;
+}
+
+function setLanguageFromLocalStorage() {
+  if (Object.keys(LANGUAGES).includes(localStorage.getItem("language"))) {
+    selectedLanguage = localStorage.getItem("language");
+  } else {
+    localStorage.setItem("language", DEFAULT_LANGUAGE);
+    selectedLanguage = DEFAULT_LANGUAGE;
+  }
+  
+  let selectedLanguageOption = SELECT_LANGUAGE_SELECT.querySelector(
+    `option[value="${selectedLanguage}"]`
+  );
+  selectedLanguageOption.setAttribute("selected", "selected");
+}
+
+function setRandomFont() {
+  let randomFont = FONTS[Math.floor(Math.random() * FONTS.length)];
+  document.body.style.fontFamily = randomFont;
+}
+
+SELECT_LANGUAGE_SELECT.addEventListener("change", function () {
+  const selectedLanguage = this.value;
+  localStorage.setItem("language", selectedLanguage);
+  location.reload();
+});
+
+function start() {
+  setRandomFont();
+  setLanguageFromLocalStorage();
+
+  fetch(`text/${selectedLanguage}.json`)
+  .then((response) => response.json())
+  .then((text) => {
+    TEXT = text;
+    createSlideShow();
+    showCurrentSlide();
+  })
+  .catch((error) => {
+    console.error("Error loading JSON file:", error);
+  });
+}
+
+
+RESTART_BUTTON.addEventListener("click", function () {
       location.reload();
   });
 
@@ -112,14 +123,23 @@ function showCurrentSlide() {
 }
 
 let canChangeSlide = true;
+function putSlideChangeOnCooldown() {
+  canChangeSlide = false;
+    setTimeout(function () {
+      canChangeSlide = true;
+    }, SLIDE_CHANGE_COOLDOWN);
+}
 
 document.addEventListener("click", function (event) {
-  if (event.target.closest(".slide")){
-    currentSlide++;
-    if (currentSlide >= SLIDE_STRUCTURE.length) {
-      currentSlide = SLIDE_STRUCTURE.length - 1;
+  if (canChangeSlide) {
+    if (event.target.closest(".slide")){
+      currentSlide++;
+      if (currentSlide >= SLIDE_STRUCTURE.length) {
+        currentSlide = SLIDE_STRUCTURE.length - 1;
+      }
+      showCurrentSlide();
+      putSlideChangeOnCooldown();
     }
-    showCurrentSlide();
   }
 });
 
@@ -138,10 +158,7 @@ document.addEventListener("keydown", function (event) {
       }
       showCurrentSlide();
     }
-    canChangeSlide = false;
-    setTimeout(function () {
-      canChangeSlide = true;
-    }, 200);
+    putSlideChangeOnCooldown();
   }
 });
 
@@ -154,7 +171,6 @@ function getNumberOfImagesInSlideStructure() {
   }
   return nbOfImages;
 }
-NB_OF_IMAGES_IN_FILE_STRUCTURE = getNumberOfImagesInSlideStructure();
 
 function createSlideShow() {
   let images = generateRandomImages(NB_OF_IMAGES_IN_FILE_STRUCTURE);
@@ -259,3 +275,5 @@ function toggleFullScreen() {
     }
   }
 }
+
+start();
