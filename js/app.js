@@ -1,4 +1,4 @@
-const NB_OF_IMAGES = 68;
+const NB_OF_IMAGES = 76;
 const SLIDE_CHANGE_COOLDOWN = 100; //in ms
 
 const FONTS = ["Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT"];
