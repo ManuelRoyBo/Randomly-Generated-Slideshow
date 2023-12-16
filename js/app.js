@@ -1,7 +1,26 @@
 const NB_OF_IMAGES = 76;
 const SLIDE_CHANGE_COOLDOWN = 100; //in ms
 
-const FONTS = ["Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT"];
+const FONTS = [
+  'Copperplate Gothic',
+  'Helvetica',
+  'stencil',
+  'Candara',
+  'Impact',
+  'Verdana',
+  'Rockwell',
+  'Courier New',
+  'Brush Script MT',
+  'papyrus',
+  'Comic Sans MS, cursive',
+  "Arial",
+  "Tahoma",
+  "Trebuchet MS",
+  "Georgia",
+  "Garamond",
+  "Courier New",
+  "Brush Script MT"
+];
 
 const FULLSCREEN_BUTTON = document.getElementById("fullscreen-button");
 FULLSCREEN_BUTTON.addEventListener("click", toggleFullScreen);
