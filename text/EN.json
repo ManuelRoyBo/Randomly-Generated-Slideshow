@@ -16,7 +16,6 @@
         "The Pigeon Conspiracy: Are They Really Innocent?",
         "Lessons in Dance from the Elegant Slug",
         "How to Train a Hamster for Skateboarding",
-        "Alien's Favorite Dishes at Your Neighbor's House",
         "The Hidden Philosophy Behind Mismatched Socks",
         "Tips for Becoming an Expert in Plant Conversations",
         "Communication Techniques of Unicorns in the Enchanted Forest",
@@ -24,7 +23,6 @@
         "Why Squirrels Make Better Acrobats Than Humans",
         "Secret Recipes for Banana and Chocolate Soup",
         "Cracking the Code of Kitten Language: Meows or Coded Messages?",
-        "Future Domestic Robots: Faithful Companions or Future Dictators?",
         "Fairy Tales Revisited: Vegetarian Dragons and Gluten-Free Witches",
         "Fashion Advice from the Flamingo: Feathered Elegance",
         "Snail Martial Arts: Slow but Effective",
@@ -82,7 +80,24 @@
         "The Perfect Man",
         "My Favorite Animated Film: Moana",
         "The Decline of the Education System",
-        "Why this website is the best!"
+        "Why this website is the best!",
+        "How to invest in Bitcoin",
+        "My secret obsession",
+        "My new hobby",
+        "The benefits of procrastination",
+        "The preparation behind this presentation",
+        "How to cook spagetthi with a single spaghetto",
+        "How to make a coffe with a propane tank",
+        "Touching grass, the art of going outside",
+        "How to make fire with a bottle and your partner's hair",
+        "How to charge your cellphone with your own breath",
+        "The truth on lies",
+        "Yesterday's diner with my mother's family",
+        "Eating broccoli for fun: communism or masochism?",
+        "My favorite website",
+        "My secret deadly allergy",
+        "How to make a presentation in 5 minutes",
+        "My vegan, gluten-free, sugar-free, fat-free, salt-free, water-free, air-free, taste-free, smell-free, sight-free, sound-free, touch-free, thought-free, life-free, death-free, presentation-free, presentation"
     ],
     "teasers": [
         "Hold on tight, you won't believe what's coming up!",
@@ -143,7 +158,14 @@
         "As my grandpas used to say...",
         "This presentation is sponsored by...",
         "This presentation is brought to you by RAID SHADOW LEGENDS",
-        "Do not put this in your mouth..."
+        "Do not put this in your mouth...",
+        "I need a volunteer from now on",
+        "I would like to thank my mother for this presentation",
+        "What I am about to tell you is not true",
+        "I would have liked to put a picture here, but I didn't have time",
+        "I would have liked to put a song here, but I didn't have time. So I am going to sing it for you",
+        "I would have liked to put a video here, but I didn't have time. So I am going to act it for you",
+        "From now on, I will stop speaking and I will mime the rest of my presentation"
     ],
     "quotes": [
         "“I can resist anything except temptation.”",
@@ -197,6 +219,7 @@
         "Steve Jobs",
         "Barack Obama",
         "Donald Trump",
-        "J.K. Rowling"
+        "J.K. Rowling",
+        "Shrek"
     ]
 }

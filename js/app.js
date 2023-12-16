@@ -1,7 +1,26 @@
-const NB_OF_IMAGES = 68;
+const NB_OF_IMAGES = 76;
 const SLIDE_CHANGE_COOLDOWN = 100; //in ms
 
-const FONTS = ["Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman", "Georgia", "Garamond", "Courier New", "Brush Script MT"];
+const FONTS = [
+  'Copperplate Gothic',
+  'Helvetica',
+  'stencil',
+  'Candara',
+  'Impact',
+  'Verdana',
+  'Rockwell',
+  'Courier New',
+  'Brush Script MT',
+  'papyrus',
+  'Comic Sans MS, cursive',
+  "Arial",
+  "Tahoma",
+  "Trebuchet MS",
+  "Georgia",
+  "Garamond",
+  "Courier New",
+  "Brush Script MT"
+];
 
 const FULLSCREEN_BUTTON = document.getElementById("fullscreen-button");
 FULLSCREEN_BUTTON.addEventListener("click", toggleFullScreen);
@@ -203,6 +222,7 @@ function createImageSlide(imagePath, slideIndex) {
   let imageSlide = document.createElement("div");
   imageSlide.className = "image-slide slide";
   imageSlide.setAttribute("data-slide-index", slideIndex);
+  imageSlide.style.backgroundColor = getRandomColor();
   let image = document.createElement("img");
   image.src = imagePath;
   imageSlide.appendChild(image);
@@ -217,6 +237,13 @@ function createTextSlide(text, slideIndex) {
   textParagraph.innerHTML = text;
   textSlide.appendChild(textParagraph);
   document.body.appendChild(textSlide);
+
+  //Colours yay.
+  textColor = getRandomColor();
+  backgroundColor = getRandomColorWithContrast(textColor);
+
+  textSlide.style.backgroundColor = backgroundColor;
+  textSlide.style.color = textColor;
 }
 
 function modifyIntroText(introText) {
@@ -274,6 +301,32 @@ function toggleFullScreen() {
       document.exitFullscreen();
     }
   }
+}
+
+function getRandomColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 1; i <= 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function getRandomColorWithContrast(otherColor) {
+  const getBrightness = (hexColor) => {
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+    return (r * 299 + g * 587 + b * 114) / 1000;
+  };
+
+  const minContrast = 128;
+  let newColor;
+  do {
+    newColor = getRandomColor();
+  } while (Math.abs(getBrightness(newColor) - getBrightness(otherColor)) < minContrast);
+
+  return newColor;
 }
 
 start();
