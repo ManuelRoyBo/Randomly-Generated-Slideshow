@@ -1,4 +1,4 @@
-const NB_OF_IMAGES = 76;
+const NB_OF_IMAGES = 81;
 const SLIDE_CHANGE_COOLDOWN = 100; //in ms
 
 const FONTS = [
