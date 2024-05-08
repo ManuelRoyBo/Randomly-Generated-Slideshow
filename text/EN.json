@@ -221,5 +221,16 @@
         "Donald Trump",
         "J.K. Rowling",
         "Shrek"
+    ],
+    "facts": [
+        "1",
+        "-1",
+        "0",
+        "0.69%",
+        "100%",
+        "42%",
+        "Cats",
+        "an astronaut",
+        "8 Xylophones"
     ]
 }
