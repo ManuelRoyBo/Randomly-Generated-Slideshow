@@ -56,19 +56,27 @@ select {
     
   }
 
+.links {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 145px;
+    height: 50px;
+    gap:10px;
+}
+
+a:hover,
+button:hover,
+select:hover {
+    transform: scale(1.1);
+}
+
+.links img {
+    height: 100%;
+}
+
 #select-language {
     position: fixed;
     top: 10px;
     right: 10px;
-}
-
-#github-link {
-    position: fixed;
-    top: 10px;
-    height: 50px;
-    right: 145px;
-}
-
-#github-link img {
-    height: 100%;
 }
