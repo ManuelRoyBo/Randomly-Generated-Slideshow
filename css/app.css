@@ -35,7 +35,7 @@ h2 {
 }
 
 .facts-slide {
-    font-size: 6vh;
+    font-size: 2vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

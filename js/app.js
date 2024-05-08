@@ -221,7 +221,7 @@ function createSlideShow() {
         createTextSlide(generateRandomQuote(), i);
         break;
       case "facts":
-        createFactsSlide(generateRandomFacts(),images.pop(), i);
+        createFactsSlide(generateRandomFactsTitle(), generateRandomFacts(),images.pop(), i);
         break;
       case "outroText":
         modifyOutroText(TEXT["outro-text"], i);
@@ -258,7 +258,7 @@ function createTextSlide(text, slideIndex) {
   textSlide.style.color = textColor;
 }
 
-function createFactsSlide(facts, imagePath, slideIndex) {
+function createFactsSlide(factTitle, facts, imagePath, slideIndex) {
   let factsSlide = document.createElement("div");
   factsSlide.className = "facts-slide slide";
   factsSlide.setAttribute("data-slide-index", slideIndex);
@@ -270,6 +270,9 @@ function createFactsSlide(facts, imagePath, slideIndex) {
   textColor = getRandomColor();
   backgroundColor = getRandomColorWithContrast(textColor);
 
+  let factsTitle = document.createElement("h2");
+  factsTitle.innerHTML = factTitle;
+  factsList.appendChild(factsTitle);
   facts.forEach((fact) => {
     let factItem = document.createElement("li");
     factItem.innerHTML = fact;
@@ -335,6 +338,11 @@ function generateRandomSubject() {
 function generateRandomTeaser() {
   let teasers = TEXT["teasers"];
   return teasers[Math.floor(Math.random() * teasers.length)];
+}
+
+function generateRandomFactsTitle() {
+  let factsTitles = TEXT["facts-titles"];
+  return factsTitles[Math.floor(Math.random() * factsTitles.length)];
 }
 
 function generateRandomFacts(factsAmount = FACT_AMOUNT_PER_FACTS_SLIDE) {

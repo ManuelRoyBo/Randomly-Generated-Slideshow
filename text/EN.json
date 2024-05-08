@@ -222,6 +222,27 @@
         "J.K. Rowling",
         "Shrek"
     ],
+    "facts-titles": [
+        "The Solutions",
+        "The Problem",
+        "The Solution",
+        "Interesting Statistics",
+        "Amazing Facts",
+        "Recent Discoveries",
+        "Current Trends",
+        "Unsolved Mysteries",
+        "Historical Facts",
+        "Crucial Data",
+        "Surprising Revelations",
+        "Scientific Discoveries",
+        "Relevant Information",
+        "Intriguing Observations",
+        "Deep Insights",
+        "Significant Events",
+        "Fascinating Phenomena",
+        "Curious Facts",
+        "Surprising Results"
+    ],
     "facts": [
         "1",
         "-1",
