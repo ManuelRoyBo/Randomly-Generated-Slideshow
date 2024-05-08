@@ -6,7 +6,7 @@ body {
 h1 {
     font-size: 5vw;
     font-weight: 1500;
-    margin: 0px 20px;
+    margin: 0px 10vw;
 }
 
 h2 {
@@ -24,7 +24,7 @@ h2 {
     justify-content: center;
 }
 
-.slide img {
+.image-slide img {
     max-width: 100%;
     max-height: 100%;
 }
@@ -32,6 +32,36 @@ h2 {
 .slide {
     text-align: center;
     max-width: 100%;
+}
+
+.facts-slide {
+    font-size: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1 1 0px;
+}
+
+.facts-slide ol,
+.facts-slide ul {
+    margin:0;
+    padding: 0 20px 0 80px;
+    flex: 1 1 0px;
+    width: 50%;
+    list-style-type: inner;
+}
+
+.facts-slide li {
+    margin: 10px;
+    text-align: left;
+    width: auto;
+}
+
+.facts-slide img {
+    flex: 1 1 0px;
+    width:50%;
+    padding: 20px;
 }
 
 .hidden {
@@ -56,19 +86,27 @@ select {
     
   }
 
+.links {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 145px;
+    height: 50px;
+    gap:10px;
+}
+
+a:hover,
+button:hover,
+select:hover {
+    transform: scale(1.1);
+}
+
+.links img {
+    height: 100%;
+}
+
 #select-language {
     position: fixed;
     top: 10px;
     right: 10px;
-}
-
-#github-link {
-    position: fixed;
-    top: 10px;
-    height: 50px;
-    right: 145px;
-}
-
-#github-link img {
-    height: 100%;
 }

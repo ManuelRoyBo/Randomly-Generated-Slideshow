@@ -1,5 +1,10 @@
-const NB_OF_IMAGES = 76;
+const NB_OF_IMAGES = 81;
 const SLIDE_CHANGE_COOLDOWN = 100; //in ms
+const FACTS_SLIDE_LIST_TYPES_AND_STYLES = {
+  "ul": ["disc", "circle", "square"],
+  "ol": ["decimal", "lower-alpha", "lower-roman", "upper-alpha", "upper-roman"],
+}
+const FACT_AMOUNT_PER_FACTS_SLIDE = 5;
 
 const FONTS = [
   'Copperplate Gothic',
@@ -44,9 +49,9 @@ const SLIDE_STRUCTURE = [
   "image",
   "teaser",
   "image",
+  "facts",
   "image",
   "quote",
-  "image",
   "image",
   "outroText",
 ];
@@ -152,11 +157,7 @@ function putSlideChangeOnCooldown() {
 document.addEventListener("click", function (event) {
   if (canChangeSlide) {
     if (event.target.closest(".slide")){
-      currentSlide++;
-      if (currentSlide >= SLIDE_STRUCTURE.length) {
-        currentSlide = SLIDE_STRUCTURE.length - 1;
-      }
-      showCurrentSlide();
+      goToNextSlide();
       putSlideChangeOnCooldown();
     }
   }
@@ -165,26 +166,34 @@ document.addEventListener("click", function (event) {
 document.addEventListener("keydown", function (event) {
   if (canChangeSlide) {
     if (event.key === "ArrowRight" || event.key === " ") {
-      currentSlide++;
-      if (currentSlide >= SLIDE_STRUCTURE.length) {
-        currentSlide = SLIDE_STRUCTURE.length - 1;
-      }
-      showCurrentSlide();
+      goToNextSlide();
     } else if (event.key === "ArrowLeft") {
-      currentSlide--;
-      if (currentSlide < 0) {
-        currentSlide = 0;
-      }
-      showCurrentSlide();
+      goToPreviousSlide();
     }
     putSlideChangeOnCooldown();
   }
 });
 
+function goToNextSlide() {
+  currentSlide++;
+  if (currentSlide >= SLIDE_STRUCTURE.length) {
+    currentSlide = SLIDE_STRUCTURE.length - 1;
+  }
+  showCurrentSlide();
+}
+
+function goToPreviousSlide() {
+  currentSlide--;
+  if (currentSlide < 0) {
+    currentSlide = 0;
+  }
+  showCurrentSlide();
+}
+
 function getNumberOfImagesInSlideStructure() {
   let nbOfImages = 0;
   for (let i = 0; i < SLIDE_STRUCTURE.length; i++) {
-    if (SLIDE_STRUCTURE[i] === "image") {
+    if (SLIDE_STRUCTURE[i] === "image" || SLIDE_STRUCTURE[i] === "facts") {
       nbOfImages++;
     }
   }
@@ -210,6 +219,9 @@ function createSlideShow() {
         break;
       case "quote":
         createTextSlide(generateRandomQuote(), i);
+        break;
+      case "facts":
+        createFactsSlide(generateRandomFactsTitle(), generateRandomFacts(),images.pop(), i);
         break;
       case "outroText":
         modifyOutroText(TEXT["outro-text"], i);
@@ -244,6 +256,41 @@ function createTextSlide(text, slideIndex) {
 
   textSlide.style.backgroundColor = backgroundColor;
   textSlide.style.color = textColor;
+}
+
+function createFactsSlide(factTitle, facts, imagePath, slideIndex) {
+  let factsSlide = document.createElement("div");
+  factsSlide.className = "facts-slide slide";
+  factsSlide.setAttribute("data-slide-index", slideIndex);
+  let randomListType = Object.keys(FACTS_SLIDE_LIST_TYPES_AND_STYLES)[Math.floor(Math.random() * Object.keys(FACTS_SLIDE_LIST_TYPES_AND_STYLES).length)];
+  let factsListStyle = FACTS_SLIDE_LIST_TYPES_AND_STYLES[randomListType][Math.floor(Math.random() * FACTS_SLIDE_LIST_TYPES_AND_STYLES[randomListType].length)];
+  let factsList = document.createElement(randomListType);
+  factsList.style.listStyleType = factsListStyle;
+
+  textColor = getRandomColor();
+  backgroundColor = getRandomColorWithContrast(textColor);
+
+  let factsTitle = document.createElement("h2");
+  factsTitle.innerHTML = factTitle;
+  factsList.appendChild(factsTitle);
+  facts.forEach((fact) => {
+    let factItem = document.createElement("li");
+    factItem.innerHTML = fact;
+    factsList.appendChild(factItem);
+    factItem.style.color = textColor;
+  });
+  
+  factsSlide.appendChild(factsList);
+  factsSlide.style.backgroundColor = backgroundColor;
+  factsSlide.style.color = textColor;
+  document.body.appendChild(factsSlide);
+
+  let image = document.createElement("img");
+  image.src = imagePath;
+  factsSlide.appendChild(image); 
+
+  console.log(factsList);
+
 }
 
 function modifyIntroText(introText) {
@@ -291,6 +338,23 @@ function generateRandomSubject() {
 function generateRandomTeaser() {
   let teasers = TEXT["teasers"];
   return teasers[Math.floor(Math.random() * teasers.length)];
+}
+
+function generateRandomFactsTitle() {
+  let factsTitles = TEXT["facts-titles"];
+  return factsTitles[Math.floor(Math.random() * factsTitles.length)];
+}
+
+function generateRandomFacts(factsAmount = FACT_AMOUNT_PER_FACTS_SLIDE) {
+  let facts = TEXT["facts"];
+  let randomFacts = [];
+  while (randomFacts.length < factsAmount) {
+    let randomFact = facts[Math.floor(Math.random() * facts.length)];
+    if (!randomFacts.includes(randomFact)) {
+      randomFacts.push(randomFact);
+    }
+  }
+  return randomFacts;
 }
 
 function toggleFullScreen() {
