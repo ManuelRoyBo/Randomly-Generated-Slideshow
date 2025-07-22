@@ -49,9 +49,10 @@ const SLIDE_STRUCTURE = [
   "image",
   "teaser",
   "image",
-  "facts",
+  /*"facts",*/
   "image",
   "quote",
+  "image",
   "image",
   "outroText",
 ];
