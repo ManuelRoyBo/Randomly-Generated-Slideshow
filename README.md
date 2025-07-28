@@ -2,7 +2,7 @@
 
 Have you ever had that fear where you have to do a presentation about a subject you don't know? Well, that fear can finally come true! With Randomly Generated Slideshow, you can have fun (or horror) improvising a presentation over a funny and computer-generated slideshow!
 
-You can access it here: [https://slide.manurb.com/](https://slides.manumedia.ca/)
+You can access it here: https://slides.manumedia.ca/
 
 
 # Contributing
